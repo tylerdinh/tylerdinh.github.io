@@ -9,49 +9,41 @@ import {
 import { GitHubIcon, LinkedInIcon, XIcon } from "@/components/icons";
 
 export const RESUME_DATA = {
-  name: "Bartosz Jarocki",
-  initials: "BJ",
-  location: "Wrocław, Poland, CET",
-  locationLink: "https://www.google.com/maps/place/Wrocław",
+  name: "Tyler Dinh",
+  initials: "TD",
+  location: "Kansas City, MO",
+  locationLink: "https://www.google.com/maps/place/KansasCity",
   about:
-    "Detail-oriented Full Stack Engineer dedicated to building high-quality products.",
+    "Computer Science at WashU",
   summary: (
     <>
-      Frontend-focused Full Stack Engineer specializing in high-performance
-      React applications, scalable Node.js services, and real-time collaboration
-      systems. Experienced in technical architecture design and remote team
-      leadership.
+      Student at Washington University in St. Louis, pursuing a degree in Computer Science. Passionate about software development and eager to learn.
     </>
   ),
   avatarUrl: "https://avatars.githubusercontent.com/u/1017620?v=4",
   personalWebsiteUrl: "https://jarocki.me",
   contact: {
-    email: "bartosz.jarocki@hey.com",
+    email: "tylerdinh14@gmail.com",
     tel: "+48530213401",
     social: [
       {
         name: "GitHub",
-        url: "https://github.com/BartoszJarocki",
+        url: "https://github.com/tylerdinh",
         icon: GitHubIcon,
       },
       {
         name: "LinkedIn",
-        url: "https://www.linkedin.com/in/bjarocki/",
+        url: "https://www.linkedin.com/in/dinhtyler/",
         icon: LinkedInIcon,
-      },
-      {
-        name: "X",
-        url: "https://x.com/BartoszJarocki",
-        icon: XIcon,
       },
     ],
   },
   education: [
     {
-      school: "Wrocław University of Technology",
-      degree: "Bachelor's Degree in Control systems engineering and Robotics",
-      start: "2007",
-      end: "2010",
+      school: "Washington University in St. Louis",
+      degree: "Bachelor's Degree in Computer Science",
+      start: "2024",
+      end: "2028",
     },
   ],
   work: [
@@ -182,17 +174,13 @@ export const RESUME_DATA = {
     },
   ],
   skills: [
-    "React/Next.js/Remix",
-    "TypeScript",
-    "Tailwind CSS",
-    "Design Systems",
-    "WebRTC",
-    "WebSockets",
-    "Node.js",
-    "GraphQL",
-    "Relay",
-    "System Architecture",
-    "Remote Team Leadership",
+    "Java",
+    "Python",
+    "Robotics",
+    "Machine Learning",
+    "Computer Vision",
+    "LaTeX",
+    "Team Leadership",
   ],
   projects: [
     {
