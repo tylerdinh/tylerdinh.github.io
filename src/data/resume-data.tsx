@@ -27,6 +27,7 @@ export const RESUME_DATA = {
   tutoringServices: [
     "Algebra",
     "Geometry",
+    "AP Precalculus",
     "AP Calculus AB / Calculus 1",
     "AP Calculus BC / Calculus 2",
     "AP Statistics",
@@ -34,9 +35,11 @@ export const RESUME_DATA = {
     "AP Computer Science A",
     "ACT Math",
     "SAT Math",
+    "Java Programming",
+    "Block Coding",
 
   ],
-  tutoringContact: "If you are interested in tutoring, please contact me at dinh.t@wustl.edu. One free trial session is available for new students to see if I am a good fit for you.",
+  tutoringContact: "If you are interested in tutoring, please contact me at dinh.t@wustl.edu. One free trial session is available for new students to see if I am a good fit for your needs.",
   avatarUrl: "/images/tylerdinh.jpg",
   tutoringAvatarUrl: "/images/tylerdinh.jpg",
   personalWebsiteUrl: "https://tylerdinhgithubio.vercel.app/",

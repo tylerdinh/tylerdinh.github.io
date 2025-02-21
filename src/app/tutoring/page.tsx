@@ -120,7 +120,7 @@ export default function Page() {
 
         <Section>
           <h2 className="text-xl font-bold">Subjects</h2>
-          <p className="text-pretty font-mono text-sm text-muted-foreground">For previous students, my help with these subjects typically involved assisting with an existing course or creating a custom, 10 week curriculum.</p>
+          <p className="text-pretty font-mono text-sm text-muted-foreground">The areas listed below are ones I plan to tutor in. </p>
           <div className="-mx-1 grid grid-cols-1 gap-3 print:grid-cols-4 print:gap-2 md:grid-cols-2 lg:grid-cols-4">
             {RESUME_DATA.tutoringServices.map((service) => (
               <TutorCard

@@ -28,7 +28,7 @@ import {
       return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
     }
     
-    const color = getRandomColor();
+    const color = '#dddddd';
   
   
   
