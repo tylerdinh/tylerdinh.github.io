@@ -23,7 +23,7 @@ export const RESUME_DATA = {
       in software development and a passion for building innovative solutions.
     </>
   ),
-  tutoringSummary: "Hi",
+  tutoringSummary: "Hi, I’m Tyler, a current student at Washington University in St. Louis. I hope to help high school students achieve their full potential in both computer science and math. A more detailed overview of my services can be found below.",
   tutoringServices: [
     "Algebra",
     "Geometry",
@@ -59,6 +59,10 @@ export const RESUME_DATA = {
         icon: GraduationCap,
       }
     ],
+    tutoring: {
+      name: "Tyler",
+      url: "/tutoring",
+    }
   },
   education: [
     {
