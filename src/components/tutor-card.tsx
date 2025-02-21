@@ -28,7 +28,7 @@ import {
       return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
     }
     
-    const color = '#dddddd';
+    const color = '#D02449';
   
   
   

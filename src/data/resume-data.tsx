@@ -31,10 +31,10 @@ export const RESUME_DATA = {
     "AP Calculus AB / Calculus 1",
     "AP Calculus BC / Calculus 2",
     "AP Statistics",
-    "AP Computer Science Principles",
-    "AP Computer Science A",
     "ACT Math",
     "SAT Math",
+    "AP Computer Science Principles",
+    "AP Computer Science A",
     "Java Programming",
     "Block Coding",
 
