@@ -84,9 +84,6 @@ export default function ResumePage() {
         </div>
       </section>
 
-      <nav className="print:hidden" aria-label="Quick navigation">
-        <CommandMenu links={getCommandMenuLinks()} />
-      </nav>
     </main>
   );
 }
