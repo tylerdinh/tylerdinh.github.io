@@ -1,12 +1,12 @@
 import { CommandMenu } from "@/components/command-menu";
 import { Metadata } from "next";
 import { RESUME_DATA } from "@/data/resume-data";
-import { WorkExperience } from "./components/WorkExperience";
-import { Projects } from "./components/Projects";
-import { Education } from "./components/Education";
-import { Summary } from "./components/Summary";
-import { Skills } from "./components/Skills";
-import { Header } from "./components/Header";
+import { WorkExperience } from "../components/WorkExperience";
+import { Projects } from "../components/Projects";
+import { Education } from "../components/Education";
+import { Summary } from "../components/Summary";
+import { Skills } from "../components/Skills";
+import { Header } from "../components/Header";
 
 export const metadata: Metadata = {
   title: `${RESUME_DATA.name} - Resume`,
