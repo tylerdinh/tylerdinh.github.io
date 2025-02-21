@@ -23,7 +23,22 @@ export const RESUME_DATA = {
       in software development and a passion for building innovative solutions.
     </>
   ),
+  tutoringSummary: "Hi",
+  tutoringServices: [
+    "Algebra",
+    "Geometry",
+    "AP Calculus AB / Calculus 1",
+    "AP Calculus BC / Calculus 2",
+    "AP Statistics",
+    "AP Computer Science Principles",
+    "AP Computer Science A",
+    "ACT Math",
+    "SAT Math",
+
+  ],
+  tutoringContact: "If you are interested in tutoring, please contact me at dinh.t@wustl.edu. One free trial session is available for new students to see if I am a good fit for you.",
   avatarUrl: "/images/tylerdinh.jpg",
+  tutoringAvatarUrl: "/images/tylerdinh.jpg",
   personalWebsiteUrl: "https://tylerdinhgithubio.vercel.app/",
   contact: {
     email: "dinh.t@wustl.edu",
