@@ -60,6 +60,7 @@ export default function ResumePage() {
     <main
       className="container relative mx-auto scroll-my-12 overflow-auto p-4 print:p-11 md:p-16"
       id="main-content"
+      style={{ color: "#000000" }}
     >
       <div className="sr-only">
         <h1>{RESUME_DATA.name}&apos;s Resume</h1>
@@ -83,7 +84,6 @@ export default function ResumePage() {
           <Projects projects={RESUME_DATA.projects} />
         </div>
       </section>
-
     </main>
   );
 }

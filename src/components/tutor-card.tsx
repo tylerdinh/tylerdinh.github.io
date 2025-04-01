@@ -28,7 +28,7 @@ import {
       return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
     }
     
-    const color = '#D02449';
+    const color = '#424651';
   
   
   
@@ -50,7 +50,7 @@ import {
       <Card className="flex flex-col overflow-hidden border border-muted p-3 glow" style={{backgroundColor: color}}>
         <CardHeader className="">
           <div className="space-y-1">
-            <CardTitle className="text-base">
+            <CardTitle className="text-base" style={{ color: "#ffffff" }}>
               {link ? (
                 <a
                   href={link}
@@ -64,11 +64,11 @@ import {
                 title
               )}
             </CardTitle>
-            <div className="hidden font-mono text-xs underline print:visible">
+            <div className="hidden font-mono text-xs underline print:visible" style={{ color: "#215732" }}>
               {link?.replace("https://", "").replace("www.", "").replace("/", "")}
             </div>
             <CardContent className="mt-auto font-bold flex text-md mx-auto">
-            <p className="mx-auto">{description}</p>
+            <p className="mx-auto" style={{ color: "#215732" }}>{description}</p>
           </CardContent> 
            
           </div>

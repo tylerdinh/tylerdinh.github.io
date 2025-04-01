@@ -21,7 +21,7 @@ interface ProjectLinkProps {
  */
 function ProjectLink({ title, link }: ProjectLinkProps) {
   if (!link) {
-    return <span>{title}</span>;
+    return <span className="text-[#000000]">{title}</span>;
   }
 
   return (
@@ -30,7 +30,7 @@ function ProjectLink({ title, link }: ProjectLinkProps) {
         href={link}
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center gap-1 hover:underline"
+        className="inline-flex items-center gap-1 hover:underline text-[#000000]"
         aria-label={`${title} project (opens in new tab)`}
       >
         {title}
@@ -40,7 +40,7 @@ function ProjectLink({ title, link }: ProjectLinkProps) {
         />
       </a>
       <div
-        className="hidden font-mono text-xs underline print:visible"
+        className="hidden font-mono text-xs underline print:visible text-[#000000]"
         aria-hidden="true"
       >
         {link.replace("https://", "").replace("www.", "").replace("/", "")}
@@ -96,11 +96,11 @@ function ProjectCard({ title, description, tags, link }: ProjectCardProps) {
     >
       <CardHeader>
         <div className="space-y-1">
-          <CardTitle className="text-base">
+          <CardTitle className="text-base text-[#000000]">
             <ProjectLink title={title} link={link} />
           </CardTitle>
           <CardDescription
-            className="text-pretty font-mono text-xs print:text-[10px]"
+            className="text-pretty font-mono text-xs print:text-[10px] text-[#000000]"
             aria-label="Project description"
           >
             {description}
@@ -124,7 +124,7 @@ interface ProjectsProps {
 export function Projects({ projects }: ProjectsProps) {
   return (
     <Section className="print-force-new-page scroll-mb-16 print:space-y-4 print:pt-12">
-      <h2 className="text-xl font-bold" id="side-projects">
+      <h2 className="text-xl font-bold text-[#000000]" id="side-projects">
         Side projects
       </h2>
       <div

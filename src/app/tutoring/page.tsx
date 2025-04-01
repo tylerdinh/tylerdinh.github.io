@@ -33,8 +33,11 @@ export default function Page() {
               <AvatarImage alt="Tyler Dinh" src={RESUME_DATA.tutoringAvatarUrl} />
               <AvatarFallback>Tyler Dinh</AvatarFallback>
             </Avatar>
-            <h1 className="text-3xl font-bold">Tyler Dinh</h1>
-            <p className="max-w-md items-center text-pretty font-mono text-sm text-muted-foreground">
+            <h1 className="text-3xl font-bold" style={{ color: "#000000" }}>Tyler Dinh</h1>
+            <p
+              className="max-w-md items-center text-pretty font-mono text-sm text-muted-foreground"
+              style={{ color: "#000000" }}
+            >
               <a
                 className="inline-flex gap-x-1.5 align-baseline leading-none hover:underline"
                 href={RESUME_DATA.locationLink}
@@ -86,7 +89,10 @@ export default function Page() {
         </div>
         <Section>
           <h2 className="text-xl font-bold">About</h2>
-          <p className="text-pretty font-mono text-sm text-muted-foreground">
+          <p
+            className="text-pretty font-mono text-sm text-muted-foreground"
+            style={{ color: "#000000" }}
+          >
             {RESUME_DATA.tutoringSummary}
           </p>
         </Section>
@@ -120,7 +126,12 @@ export default function Page() {
 
         <Section>
           <h2 className="text-xl font-bold">Subjects</h2>
-          <p className="text-pretty font-mono text-sm text-muted-foreground">The areas listed below are ones I plan to tutor in. </p>
+          <p
+            className="text-pretty font-mono text-sm text-muted-foreground"
+            style={{ color: "#000000" }}
+          >
+            The areas listed below are ones I plan to tutor in.
+          </p>
           <div className="-mx-1 grid grid-cols-1 gap-3 print:grid-cols-4 print:gap-2 md:grid-cols-2 lg:grid-cols-4">
             {RESUME_DATA.tutoringServices.map((service) => (
               <TutorCard
@@ -130,17 +141,17 @@ export default function Page() {
                 isProject
               />
             ))}
-              
-
           </div>
-        
         </Section>
 
   
 
         <Section>
         <h2 className="text-xl font-bold">Contact</h2>
-          <p className="text-pretty font-mono text-sm text-muted-foreground">
+          <p
+            className="text-pretty font-mono text-sm text-muted-foreground"
+            style={{ color: "#000000" }}
+          >
             {RESUME_DATA.tutoringContact}
           </p>
 
