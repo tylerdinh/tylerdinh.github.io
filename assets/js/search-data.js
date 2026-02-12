@@ -18,7 +18,7 @@ ninja.data = [{
           },
         },{id: "nav-projects",
           title: "projects",
-          description: "A growing collection of your cool projects.",
+          description: "A growing collection of my cool projects.",
           section: "Navigation",
           handler: () => {
             window.location.href = "/projects/";
@@ -409,12 +409,7 @@ ninja.data = [{
             },},{id: "news-a-simple-inline-announcement-with-markdown-emoji-sparkles-smile",
           title: 'A simple inline announcement with Markdown emoji! :sparkles: :smile:',
           description: "",
-          section: "News",},{id: "projects-project-1",
-          title: 'project 1',
-          description: "with background image",
-          section: "Projects",handler: () => {
-              window.location.href = "/projects/1_project/";
-            },},{id: "projects-project-2",
+          section: "News",},{id: "projects-project-2",
           title: 'project 2',
           description: "a project with a background image and giscus comments",
           section: "Projects",handler: () => {
@@ -454,6 +449,41 @@ ninja.data = [{
           description: "another project with an image 🎉",
           section: "Projects",handler: () => {
               window.location.href = "/projects/9_project/";
+            },},{id: "projects-bank-app",
+          title: 'Bank App',
+          description: "A school project for CSE 233 (Programming Tools and Techniques) to develop a banking application in Java using software development best practices",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/bank_app/";
+            },},{id: "projects-chorus",
+          title: 'Chorus',
+          description: "A school project for CSE 204 (Web Development) at WashU to have LLMs debate on ideas in a multi-agent system, with a React (Typescript) frontend and Fast API (Python) backend",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/chorus/";
+            },},{id: "projects-delivery",
+          title: 'Delivery',
+          description: "A collaboration between WashU Robotics and WashU GDG to employ an on-campus delivery robot to deliver products from food vendors to clients",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/delivery/";
+            },},{id: "projects-introduction-to-llms",
+          title: 'Introduction to LLMs',
+          description: "A personal project to teach others about the basics behind the theory and applications of LLMs",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/introduction_to_llms/";
+            },},{id: "projects-local-llm-council",
+          title: '(Local) LLM Council',
+          description: "A personal project forked off of Andrej Karpathy&#39;s vibe-coded LLM Council project to add support for local LLMs",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/llm_council/";
+            },},{id: "projects-nimble",
+          title: 'Nimble',
+          description: "A WashU Robotics project to train a robot arm using a foundational vision-language-action model to perform out-of-distribution generalization on human manipulation tasks",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/nimble/";
+            },},{id: "projects-preventing-manipulation-of-prediction-markets",
+          title: 'Preventing Manipulation of Prediction Markets',
+          description: "A school research project for CSE 516 (Multi-Agent Systems) at WashU to provide insights on how prediction markets can be made resilient to adversarial manipulation through liquidity depth and fee structures",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/prediction_market/";
             },},{id: "teachings-data-science-fundamentals",
           title: 'Data Science Fundamentals',
           description: "This course covers the foundational aspects of data science, including data collection, cleaning, analysis, and visualization. Students will learn practical skills for working with real-world datasets.",
@@ -470,6 +500,13 @@ ninja.data = [{
         section: 'Socials',
         handler: () => {
           window.open("mailto:%74%79%6C%65%72%64%69%6E%68%31%34@%67%6D%61%69%6C.%63%6F%6D", "_blank");
+        },
+      },{
+        id: 'social-linkedin',
+        title: 'LinkedIn',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://www.linkedin.com/in/dinhtyler", "_blank");
         },
       },{
       id: 'light-theme',
