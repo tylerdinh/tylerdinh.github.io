@@ -1,11 +1,11 @@
 ---
 layout: page
-title: project 1
-description: with background image
-img: assets/img/12.jpg
+title: Delivery
+description: A collaboration between WashU Robotics and WashU GDG to employ an on-campus delivery robot to deliver products from food vendors to clients
+img: assets/img/delivery.jpg
 importance: 1
-category: work
-related_publications: true
+category: clubs
+related_publications: false
 ---
 
 Every project has a beautiful feature showcase page.
