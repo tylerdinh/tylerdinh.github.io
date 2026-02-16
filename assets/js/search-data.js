@@ -25,7 +25,7 @@ ninja.data = [{
           },
         },{id: "nav-resume",
           title: "resume",
-          description: "This is my resume from October 2025 - it is outdated and being worked on",
+          description: "Resume updated Feb. 16, 2026",
           section: "Navigation",
           handler: () => {
             window.location.href = "/resume/";
