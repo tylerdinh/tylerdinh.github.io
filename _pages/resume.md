@@ -4,7 +4,7 @@ permalink: /resume/
 title: resume
 nav: true
 nav_order: 5
-description: This is my resume from October 2025 - it is outdated and being worked on
+description: Resume updated Feb. 16, 2026
 ---
 
 <div class="resume-container" style="margin-top: 2rem;">
