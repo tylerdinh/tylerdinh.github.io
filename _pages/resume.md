@@ -4,7 +4,7 @@ permalink: /resume/
 title: resume
 nav: true
 nav_order: 5
-description: Resume updated Feb. 16, 2026
+description:
 ---
 
 <div class="resume-container" style="margin-top: 2rem;">
