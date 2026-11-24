@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Preventing Manipulation of Prediction Markets
-description: A school research project for CSE 516 (Multi-Agent Systems) at WashU to provide insights on how prediction markets can be made resilient to adversarial manipulation through liquidity depth and fee structures
+description: Providing insights on how prediction markets with multiple agents can be made resilient to adversarial manipulation through liquidity depth and fee structures for CSE 516 (Multi-Agent Systems) at WashU.
 img: assets/img/prediction_market.avif
 importance: 1
 category: school
