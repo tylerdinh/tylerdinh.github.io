@@ -27,12 +27,10 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-I am a first-generation college sophomore at Washington University in St. Louis pursuing a BSMS in CS with a broad interest in the field of AI safety.
+I am a first-generation, low income junior at Washington University in St. Louis pursuing a BSMS in CS. I enjoy solving and discussing hard problems related to Embodied AI, Mechanistic Interpretability, and AI Safety.
 
-Specifically, I’m interested in how AI models (LLMs for text, VLMs for videos, DMs for images, etc.) can be invisibly watermarked (robustly, without loss of quality) so that the produced content can be reliably distinguished from human-generated content. I develop with SynthID and other tools to discover solutions for watermarking. I’m also interested in how safety mechanisms for artificial intelligence can be enforced through public policy.
+In my free time, I enjoy tinkering with my computer, playing (and making) RPGs / Roguelikes / Roguelites, cooking, and swimming breaststroke.
 
-In my free time, I enjoy tinkering with my computer (workspace dotfiles, programming with local LLMs), playing (and making) RPGs / Roguelikes / Roguelites, cooking, and swimming breaststroke.
-
-I was recently a software development engineer intern at Amazon Prime Video Sports in Alexandria, Virginia during Summer 2025 and will be returning to Amazon during Summer 2026 in Culver City, California.
+I was recently a software development engineer intern at Amazon Studios in Los Angeles, California (Summer 2026) and Amazon Prime Video Sports in Washington, D.C. (Summer 2025). I will be returning to Amazon Studios for the third time in Los Angeles, California this upcoming summer.
 
 Please reach out at dinh(dot)t(at)wustl(dot)edu for any opportunities or inquiries.
