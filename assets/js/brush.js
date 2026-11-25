@@ -10,6 +10,9 @@
  *   - <mark> and any element with class="brush" in page content
  *   - the big title at the top of each page (your name on the about page)
  *
+ * The strokes wiggle gently (see animate() below); the motion is turned off
+ * for visitors whose system asks for reduced motion.
+ *
  * Colors live in _sass/_parchment.scss as --brush-* custom properties.
  */
 (function () {
@@ -171,7 +174,11 @@
         stroke.style.width = Math.max(0, right - left) + "px";
         stroke.style.height = Math.max(0, bottom - top) + "px";
         stroke.style.filter = "url(#" + s.filter + (large ? "-lg" : "") + ")";
-        stroke.style.transform = "skewX(" + (s.skew + j * 1.5).toFixed(2) + "deg)";
+        stroke._base = "skewX(" + (s.skew + j * 1.5).toFixed(2) + "deg)";
+        stroke._phase = (index * 3 + li * 5 + si) * 2.3; // desynchronize the wiggle
+        stroke._layer = si; // position within its group of three, for depth swaps
+        stroke._amp = large ? 1 : 0.45; // smaller text gets a gentler wiggle
+        stroke.style.transform = stroke._base;
         host.node.appendChild(stroke);
         painted.push(stroke);
       });
@@ -184,9 +191,82 @@
     requestAnimationFrame(paint);
   }
 
+  // ---------------------------------------------------------------------------
+  // Animation: a restless, hand-held wiggle. Each stroke drifts by about a
+  // pixel and turns a fraction of a degree, driven by two sine waves at
+  // unrelated speeds so the motion never visibly loops. Every couple of
+  // seconds the three strokes in each group trade stacking order, which
+  // shifts the blended color slightly. Runs at ~30fps, pauses in background
+  // tabs, and is off entirely for visitors who prefer reduced motion.
+  // ---------------------------------------------------------------------------
+
+  var FRAME_MS = 33;
+  var SWAP_MS = 2200;
+  var DEPTH_ORDERS = [
+    [1, 2, 3],
+    [2, 3, 1],
+    [3, 1, 2],
+    [1, 3, 2],
+    [2, 1, 3],
+    [3, 2, 1],
+  ];
+
+  function animate() {
+    var motionQuery = window.matchMedia ? window.matchMedia("(prefers-reduced-motion: reduce)") : null;
+    var start = null;
+    var last = 0;
+    var lastOrder = -1;
+    var rafId = null;
+
+    function frame(now) {
+      rafId = null;
+      if (document.hidden || (motionQuery && motionQuery.matches)) return;
+      rafId = requestAnimationFrame(frame);
+      if (now - last < FRAME_MS) return;
+      last = now;
+      if (start === null) start = now;
+      var t = (now - start) / 1000;
+
+      var order = Math.floor((now - start) / SWAP_MS) % DEPTH_ORDERS.length;
+      var swap = order !== lastOrder;
+      lastOrder = order;
+
+      painted.forEach(function (stroke) {
+        var ph = stroke._phase;
+        var a = stroke._amp;
+        var tx = (Math.sin(t * 3.1 + ph) * 0.9 + Math.sin(t * 7.3 + ph * 1.7) * 0.4) * a;
+        var ty = (Math.cos(t * 2.7 + ph * 1.3) * 0.7 + Math.cos(t * 5.9 + ph) * 0.3) * a;
+        var rot = Math.sin(t * 1.9 + ph) * 0.35 * a;
+        stroke.style.transform = stroke._base + " translate(" + tx.toFixed(2) + "px," + ty.toFixed(2) + "px) rotate(" + rot.toFixed(2) + "deg)";
+        if (swap) stroke.style.zIndex = String(DEPTH_ORDERS[order][stroke._layer]);
+      });
+    }
+
+    function resume() {
+      if (rafId === null) rafId = requestAnimationFrame(frame);
+    }
+
+    document.addEventListener("visibilitychange", resume);
+    if (motionQuery) {
+      var onChange = function () {
+        if (motionQuery.matches) {
+          painted.forEach(function (stroke) {
+            stroke.style.transform = stroke._base;
+          });
+        } else {
+          resume();
+        }
+      };
+      if (motionQuery.addEventListener) motionQuery.addEventListener("change", onChange);
+      else if (motionQuery.addListener) motionQuery.addListener(onChange);
+    }
+    resume();
+  }
+
   function init() {
     ensureFilters();
     paint();
+    animate();
 
     window.addEventListener("resize", schedule);
     window.addEventListener("load", schedule);

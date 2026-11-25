@@ -1,7 +1,29 @@
 <div class="col">
   <a href="{% if project.redirect %}{{ project.redirect }}{% else %}{{ project.url | relative_url }}{% endif %}">
     <div class="card h-100 hoverable">
-      {% if project.img %}
+      {% if project.video %}
+        <!--
+          Animated thumbnail: a silent looping video that behaves like a GIF.
+          assets/js/card-video.js plays it only while it's on screen, and never for
+          visitors who prefer reduced motion (they keep the `img` poster frame).
+        -->
+        <video
+          class="card-img-top"
+          src="{{ project.video | relative_url }}"
+          {% if project.img %}
+            poster="{{ project.img | relative_url }}"
+          {% endif %}
+          {% if project.video_width %}
+            width="{{ project.video_width }}" height="{{ project.video_height }}"
+          {% endif %}
+          muted
+          loop
+          playsinline
+          preload="metadata"
+          aria-label="project animation"
+          data-card-video
+        ></video>
+      {% elsif project.img %}
         {%
           include figure.liquid
           loading="eager"

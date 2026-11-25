@@ -13,3 +13,17 @@ assets/rendercv/rendercv_output/*.typ
 Gemfile.lock
 node_modules/
 vendor
+# Local planning docs (animation audit plans)
+plans/
+
+# Editor, OS and tool files
+.DS_Store
+**/.DS_Store
+.vscode/
+.claude/
+.devcontainer/devcontainer-lock.json
+
+# Secrets and local environment
+.env
+.env.*
+*.log

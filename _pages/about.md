@@ -2,16 +2,12 @@
 layout: about
 title: About
 permalink: /
-subtitle: Hello world!
+subtitle:
 
 profile:
   align: right
-  image: me.jpeg
   image_circular: false # crops the image to make it circular
   more_info: >
-    <p>my</p>
-    <p>amazon</p>
-    <p>badge!</p>
 
 selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
@@ -31,6 +27,6 @@ I am a first-generation, low income junior at Washington University in St. Louis
 
 In my free time, I enjoy tinkering with my computer, playing (and making) RPGs / Roguelikes / Roguelites, cooking, and swimming breaststroke.
 
-I was recently a software development engineer intern at Amazon Studios in Los Angeles, California (Summer 2026) and Amazon Prime Video Sports in Washington, D.C. (Summer 2025). I will be returning to Amazon Studios for the third time in Los Angeles, California this upcoming summer.
+I was recently a software development engineer intern at Amazon Studios in Los Angeles, California (Summer 2026) and Amazon Prime Video Sports in Washington, D.C. (Summer 2025). I will be returning to Amazon for the third time in Los Angeles, California this upcoming summer.
 
 Please reach out at dinh(dot)t(at)wustl(dot)edu for any opportunities or inquiries.

@@ -1,80 +1,149 @@
 ---
 layout: default
 ---
-<div class="post">
-  <header class="post-header">
-    <h1 class="post-title brush">
-      {% if site.title == 'blank' %}
-        <span class="font-weight-bold">{{ site.first_name }}</span> {{ site.middle_name }}
-        {{ site.last_name }}
-      {% else %}
-        {{ site.title }}
+{% comment %}
+  Homepage layout: one narrow centered column with the name (and a small photo),
+  the bio, then a single row of page links + social icons. The site navbar is
+  hidden on this page (see `.home-layout` in _sass/_parchment.scss), so the row
+  below is the navigation, and the theme toggle moves to the bottom-right corner.
+{% endcomment %}
+<!-- Full-screen painted 3D background (assets/js/three/home-scene.js) -->
+<div class="home-scene" data-home-scene aria-hidden="true"></div>
+<script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.min.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+    }
+  }
+</script>
+<script type="module" src="{{ '/assets/js/three/home-scene.js' | relative_url }}"></script>
+
+<div class="post home-layout">
+  <header class="post-header home-header">
+    {% if page.profile and page.profile.image %}
+      <img
+        class="home-photo"
+        src="{{ page.profile.image | prepend: 'assets/img/' | relative_url }}"
+        alt="Photo of {{ site.first_name }} {{ site.last_name }}"
+        width="72"
+        height="72"
+      >
+    {% endif %}
+    <div class="home-heading">
+      <h1 class="post-title brush">
+        {% if site.title == 'blank' %}
+          {{ site.first_name }}
+          {{ site.middle_name }}
+          {{ site.last_name }}
+        {% else %}
+          {{ site.title }}
+        {% endif %}
+      </h1>
+      {% if page.subtitle %}
+        <p class="desc">{{ page.subtitle }}</p>
       {% endif %}
-    </h1>
-    <p class="desc">{{ page.subtitle }}</p>
+    </div>
   </header>
 
   <article>
-    {% if page.profile %}
-      <div class="profile float-{% if page.profile.align == 'left' %}left{% else %}right{% endif %}">
-        {% if page.profile.image %}
-          {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
-          {% if page.profile.image_circular %}
-            {% assign profile_image_class = 'img-fluid z-depth-1 rounded-circle' %}
-          {% else %}
-            {% assign profile_image_class = 'img-fluid z-depth-1
-      rounded' %}
-          {% endif %}
-          {% capture sizes %}(min-width: {{ site.max_width }}) {{ site.max_width | minus: 30 | times: 0.3}}px, (min-width: 576px)
-      30vw, 95vw"{% endcapture %}
-          {%
-            include figure.liquid loading="eager" path=profile_image_path class=profile_image_class sizes=sizes alt=page.profile.image
-            cache_bust=true
-          %}
-        {% endif %}
-        {% if page.profile.more_info %}
-          <div class="more-info">{{ page.profile.more_info }}</div>
-        {% endif %}
-      </div>
-    {% endif %}
+    <div class="clearfix home-bio">{{ content }}</div>
 
-    <div class="clearfix">{{ content }}</div>
+    <!-- Page links + social icons (replaces the navbar on the homepage) -->
+    <nav class="home-links" aria-label="Site">
+      <ul class="home-pages">
+        {% assign sorted_pages = site.pages | sort: 'nav_order' %}
+        {% for p in sorted_pages %}
+          {% if p.nav and p.autogen == null and p.dropdown != true and p.permalink != '/' %}
+            <li>
+              <a href="{{ p.url | relative_url }}">{{ p.title }}</a>
+            </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+      {% if page.social %}
+        <div class="home-social contact-icons">{% social_links %}</div>
+      {% endif %}
+    </nav>
+
+    {% if page.social and site.contact_note %}
+      <div class="contact-note">{{ site.contact_note }}</div>
+    {% endif %}
 
     <!-- News -->
     {% if page.announcements and page.announcements.enabled %}
-      <h2>
-        <a href="{{ '/news/' | relative_url }}" style="color: inherit">News</a>
+      <h2 class="home-section-title">
+        <a href="{{ '/news/' | relative_url }}">News</a>
       </h2>
       {% include news.liquid limit=true %}
     {% endif %}
 
     <!-- Latest posts -->
     {% if page.latest_posts and page.latest_posts.enabled %}
-      <h2>
-        <a href="{{ '/blog/' | relative_url }}" style="color: inherit">Latest Posts</a>
+      <h2 class="home-section-title">
+        <a href="{{ '/blog/' | relative_url }}">Latest Posts</a>
       </h2>
       {% include latest_posts.liquid %}
     {% endif %}
 
     <!-- Selected papers -->
     {% if page.selected_papers %}
-      <h2>
-        <a href="{{ '/publications/' | relative_url }}" style="color: inherit">Selected Publications</a>
+      <h2 class="home-section-title">
+        <a href="{{ '/publications/' | relative_url }}">Selected Publications</a>
       </h2>
       {% include selected_papers.liquid %}
-    {% endif %}
-
-    <!-- Social -->
-    {% if page.social %}
-      <div class="social">
-        <div class="contact-icons">{% social_links %}</div>
-
-        <div class="contact-note">{{ site.contact_note }}</div>
-      </div>
     {% endif %}
 
     {% if site.newsletter and site.newsletter.enabled and site.footer_fixed %}
       {% include newsletter.liquid center=true %}
     {% endif %}
   </article>
+
+  <!-- Theme toggle for the homepage (the navbar's toggle is hidden here) -->
+  <button
+    type="button"
+    class="home-theme-toggle"
+    title="Change theme"
+    aria-label="Change theme"
+    onclick="document.getElementById('light-toggle').click()"
+  >
+    <i class="fa-half-sun-moon home-theme-system"></i>
+    <i class="fa-solid fa-moon home-theme-dark"></i>
+    <i class="fa-solid fa-sun home-theme-light"></i>
+  </button>
 </div>
+
+<script>
+  // The homepage never scrolls: if the column is taller than the screen, scale it
+  // down (from the top) until everything fits above the footer.
+  (function () {
+    var column = document.querySelector('.home-layout');
+    if (!column) return;
+    function fit() {
+      column.style.transform = '';
+      var footer = document.querySelector('footer');
+      var footerH = footer ? footer.offsetHeight : 0;
+      var top = column.getBoundingClientRect().top;
+      var available = window.innerHeight - top - footerH - 12;
+      var scale = Math.min(1, available / column.scrollHeight);
+      column.style.transform = scale < 1 ? 'scale(' + scale.toFixed(4) + ')' : '';
+    }
+    var queued = false;
+    function schedule() {
+      if (queued) return;
+      queued = true;
+      requestAnimationFrame(function () {
+        queued = false;
+        fit();
+        // let the brushstroke highlight re-measure the (possibly scaled) title
+        window.dispatchEvent(new Event('resize'));
+      });
+    }
+    window.addEventListener('resize', function (e) {
+      if (e.isTrusted) schedule();
+    });
+    window.addEventListener('load', schedule);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(schedule);
+    fit();
+  })();
+</script>
