@@ -112,7 +112,7 @@ ninja.data = [{
               window.location.href = "/projects/llm_council/";
             },},{id: "projects-nimble",
           title: 'Nimble',
-          description: "A WashU Robotics project to train a robot arm using a foundational vision-language-action model to perform out-of-distribution generalization on human manipulation tasks",
+          description: "Using embodied AI models to perform out-of-distribution generalization on human manipulation tasks for WashU Robotics.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/nimble/";
             },},{id: "projects-preventing-manipulation-of-prediction-markets",
