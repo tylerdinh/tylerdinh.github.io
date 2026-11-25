@@ -1038,12 +1038,12 @@ body:has(.home-layout) {
 
     .container,
     .container * {
-      color: rgba(255, 255, 255, 0.78) !important;
+      color: color-mix(in srgb, #fff 78%, transparent) !important;
       text-shadow: 0 1px 6px rgba(20, 40, 70, 0.45);
     }
 
     a {
-      text-decoration-color: rgba(255, 255, 255, 0.5);
+      text-decoration-color: color-mix(in srgb, #fff 50%, transparent);
     }
   }
 }
@@ -1061,6 +1061,9 @@ body:has(.home-layout) {
     height: 100%;
   }
 
+  // Note: translucent whites are written as color-mix(in srgb, #fff N%, transparent), not
+  // rgba(255, 255, 255, a) or #ffffffXX: the production CSS minifier rewrites those as an
+  // invalid hsla(0,0,100%,a) (saturation without %), and browsers drop the declaration.
   // soft vignette + a light scrim at the top so the text always reads
   &::after {
     content: "";
@@ -1104,14 +1107,14 @@ html[data-theme="dark"] .home-scene::after {
   }
 
   .home-photo {
-    border-color: rgba(255, 255, 255, 0.7);
+    border-color: color-mix(in srgb, #fff 70%, transparent);
     box-shadow: 0 6px 24px rgba(15, 35, 70, 0.25);
   }
 
   a,
   .home-bio a {
     color: #fff;
-    text-decoration-color: rgba(255, 255, 255, 0.6);
+    text-decoration-color: color-mix(in srgb, #fff 60%, transparent);
 
     &:hover,
     &:focus-visible {
@@ -1130,15 +1133,15 @@ html[data-theme="dark"] .home-scene::after {
   }
 
   .home-section-title {
-    border-top-color: rgba(255, 255, 255, 0.35);
+    border-top-color: color-mix(in srgb, #fff 35%, transparent);
 
     a {
-      color: rgba(255, 255, 255, 0.8);
+      color: color-mix(in srgb, #fff 80%, transparent);
     }
   }
 
   .news table th {
-    color: rgba(255, 255, 255, 0.8);
+    color: color-mix(in srgb, #fff 80%, transparent);
   }
 
   .news table td {
@@ -1147,8 +1150,8 @@ html[data-theme="dark"] .home-scene::after {
 }
 
 .home-theme-toggle {
-  background-color: rgba(255, 255, 255, 0.18);
-  border-color: rgba(255, 255, 255, 0.45);
+  background-color: color-mix(in srgb, #fff 18%, transparent);
+  border-color: color-mix(in srgb, #fff 45%, transparent);
   color: #fff;
   backdrop-filter: blur(6px);
 
